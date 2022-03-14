@@ -1,4 +1,5 @@
 import Page from "../page";
+import assert from 'assert'
 
 declare var fin:any;
 declare var browser:any;
@@ -52,22 +53,27 @@ class homeAPI extends Page {
     showHome = async () => {
         await this.showHomeBtn.click();
         const result = await browser.executeAsync(function (done) {
+            
             const checkShowing = async () => {
                 done(await fin.me.isShowing()) 
-            };
+            }; 
+            
             checkShowing();
         });
-        // add assertion for {result}
+        assert.strictEqual(result, true);
+
     };
 
     hideHome = async () => {
         await this.hideHomeBTn.click();
         const result = await browser.executeAsync(function (done) {
+            
             const checkShowing = async () => {
                 done(await fin.me.isShowing()) 
             };
+            
             checkShowing();
         });
-        // add assertion for {result}
+        assert.strictEqual(result, false);
     };
 }

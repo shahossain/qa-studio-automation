@@ -14,7 +14,6 @@ declare class browserAPI extends Page {
     get createViewBtn(): any;
     get replaceToolbarOptionsBtn(): any;
     get replaceWindowStateButtonOptionsBtn(): any;
-    convertToObj: (elem: Element) => Promise<any>;
     adjustLaunchPageJSON: () => Promise<void>;
 }
 declare const _default: browserAPI;

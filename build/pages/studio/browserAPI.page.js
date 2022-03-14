@@ -7,11 +7,6 @@ const page_1 = __importDefault(require("../page"));
 class browserAPI extends page_1.default {
     constructor() {
         super(...arguments);
-        this.convertToObj = async (elem) => {
-            const elemText = elem.textContent;
-            const obj = JSON.parse(elemText);
-            return obj;
-        };
         this.adjustLaunchPageJSON = async () => {
             await this.launchPageBtn.click();
             let launchPageJSONText = await this.launchPageJSON.getValue();

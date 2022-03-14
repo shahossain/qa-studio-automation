@@ -27,9 +27,7 @@ class platformAPI extends Page {
         if  (disablePageCloseOption == true){
             await this.disableCloseButtonCheckbox.click();
         }
-
-        await browser.pause(5000);
-        
+                
         await this.initializePlatformSubmitBtn.click();
 
 

@@ -8,7 +8,7 @@ declare class platformAPI extends Page {
     get disableCloseButtonCheckbox(): any;
     get intializeWithThemeBtn(): any;
     get intializeWithPresetsBtn(): any;
-    intializePlatform: (hideCloseOption: boolean, disableCloseOption: boolean) => Promise<void>;
+    intializePlatform: (hidePageCloseOption: boolean, disablePageCloseOption: boolean) => Promise<void>;
 }
 declare const _default: platformAPI;
 export default _default;

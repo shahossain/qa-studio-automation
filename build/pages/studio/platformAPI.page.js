@@ -7,15 +7,14 @@ const page_1 = __importDefault(require("../page"));
 class platformAPI extends page_1.default {
     constructor() {
         super(...arguments);
-        this.intializePlatform = async (hideCloseOption, disableCloseOption) => {
+        this.intializePlatform = async (hidePageCloseOption, disablePageCloseOption) => {
             await this.intializeBtn.click();
-            if (hideCloseOption == true) {
+            if (hidePageCloseOption == true) {
                 await this.hideCloseButtonCheckbox.click();
             }
-            if (disableCloseOption == true) {
+            if (disablePageCloseOption == true) {
                 await this.disableCloseButtonCheckbox.click();
             }
-            await browser.pause(5000);
             await this.initializePlatformSubmitBtn.click();
         };
     }

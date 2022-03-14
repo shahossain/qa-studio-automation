@@ -35,10 +35,7 @@ class browserAPI extends Page {
         await this.launchPageJSON.setValue(changedLaunchPageJSONText);
 
         await this.launchPageSubmitBtn.click();
-    }
-
-
-
+    };
 };
 
 export default new browserAPI();
