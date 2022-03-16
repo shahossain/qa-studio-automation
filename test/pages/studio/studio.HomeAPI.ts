@@ -1,5 +1,4 @@
 import Page from "../page";
-import assert from 'assert'
 
 declare var fin:any;
 declare var browser:any;
@@ -24,19 +23,6 @@ class homeAPI extends Page {
     // Show/Hide Elements
     get showHomeBtn () {return browser.$('//h2[contains(text(), "Home API")]/following-sibling::button[contains(text(), "Show")]')};
     get hideHomeBTn () {return browser.$('//h2[contains(text(), "Home API")]/following-sibling::button[contains(text(), "Hide")]')};
-    
-    
-    // Assertion for whether or the component is showing
-    isShowing = async (expected:boolean) => {
-        const result = await browser.executeAsync(function (done) {
-            
-            const checkShowing = async () => {
-                done(await fin.me.isShowing()) 
-            }; 
-            checkShowing();
-        }); 
-        assert.strictEqual(result, expected);
-    };
     
     registerHome = async (homeName:string) => {
         await this.registerHomeBtn.click();
@@ -66,14 +52,12 @@ class homeAPI extends Page {
         await this.registerHomeSubmitBtn.click();
     };
 
-    showHome = async () => {
+    clickShowHome = async () => {
         await this.showHomeBtn.click();
-        await this.isShowing(true);
     };
 
-    hideHome = async () => {
+    clickHideHome = async () => {
         await this.hideHomeBTn.click();
-        await this.isShowing(false)
     };
 }
 

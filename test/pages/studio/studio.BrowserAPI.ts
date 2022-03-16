@@ -4,11 +4,10 @@ declare var browser:any;
 
 class browserAPI extends Page {
     
+    // Launch Page Elements
     get launchPageBtn () {return browser.$('//h2[contains(text(), "Workspace Platform API")]/following-sibling::button[contains(text(), "Launch Page")]')};
     get launchPageJSON () {return browser.$('//h2[contains(text(), "Launch Page")]/following-sibling::textarea')};
     get launchPageSubmitBtn () {return browser.$('//button[text() = "Launch"]')};
-
-
 
     get quitWorkspaceBtn () {return browser.$('//h2[contains(text(), "Workspace Platform API")]/following-sibling::button[contains(text(), "Quit")]')};
     get createWindowBtn () {return browser.$('//h2[contains(text(), "Workspace Platform API")]/following-sibling::button[contains(text(), "Create Window")]')};

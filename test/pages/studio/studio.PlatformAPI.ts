@@ -1,8 +1,8 @@
-import Page from "../page";
+import Common from "../page";
 
 declare var browser:any;
 
-class platformAPI extends Page {
+class platformAPI extends Common {
     
     // Intialize Platform Elements
     get intializeBtn () {return browser.$('//h2[contains(text(), "Workspace Platform API")]//following-sibling::div/button[text() = "Initialize"]')};
@@ -19,7 +19,6 @@ class platformAPI extends Page {
     get intializeWithPresetsBtn () {return browser.$('//h2[contains(text(), "Workspace Platform API")]//following-sibling::div/button[text() = "Initialize w/ Presets"]')};
 
     
-    
     intializePlatform = async (hidePageCloseOption:boolean, disablePageCloseOption:boolean) => {
         await this.intializeBtn.click();
         
@@ -32,8 +31,6 @@ class platformAPI extends Page {
         }
                 
         await this.initializePlatformSubmitBtn.click();
-
-
     };
 };
 

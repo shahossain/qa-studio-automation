@@ -1,8 +1,8 @@
-import Page from "../page";
+import Common from "../page";
 
 declare var browser:any;
 
-class storeAPI extends Page {
+class storeAPI extends Common {
     
     get registerStoreBtn () {return browser.$('//h2[contains(text(), "Store API")]/following-sibling::button[contains(text(), "Register")]')};
     
@@ -26,11 +26,9 @@ class storeAPI extends Page {
 3
     showStore = async () => {
         await this.showStoreBtn.click();
-        // Insert assertion here
     };
 
     hideStore = async () => {
         await this.hideStoreBtn.click();
-        // Insert assertion here 
     };
 }
