@@ -3,8 +3,6 @@ import HomeAPI from '../pages/studio/studio.HomeAPI'
 import Helper from '../pages/workspace/helper'
 import WSHome from '../pages/workspace/workspace.Home'
 
-declare var browser:any;
-
 describe("Initialize Platform and Register Home", function() {
 
     it('Initialize Platform', async () => {
@@ -25,5 +23,15 @@ describe("Initialize Platform and Register Home", function() {
         await Helper.switchToHome();
         await WSHome.checkProviderCount(2);
     });
+});
+
+describe("Launch Content through Search Filter", function() {
     
+    it('Go into Home Search',async () => {
+        await WSHome.searchFirstProviderWithFilters();
+    });
+
+    it('Apply Filter and Launch Content',async () => {
+        await WSHome.applyFilterAndLaunchContent();
+    });
 });

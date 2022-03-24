@@ -30,7 +30,7 @@ exports.config = {
         }]
     ],
     openfin: {
-        manifest: 'fins://cdn.openfin.co/workspace/6.2.4/studio/app.json',
+        manifest: 'fins://cdn.openfin.co/workspace/6.3.2/studio/app.json',
         debuggerPort: 9090
     },
 

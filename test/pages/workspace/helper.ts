@@ -21,7 +21,7 @@ class HelperFunctions extends Page {
 
     // Switch to Studio Window
     switchToStudio = async () => {
-        await rm.switchWebContentByURL('https://cdn.openfin.co/workspace/6.2.4/studio/index.html');
+        await rm.switchWebContentByURL('https://cdn.openfin.co/workspace/6.3.2/studio/index.html');
     };
 
     // Switch to Home

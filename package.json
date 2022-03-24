@@ -19,5 +19,8 @@
         "wdio-chromedriver-service": "^7.2.6",
         "wdio-openfin-service": "96.0.3",
         "webdriverio": "7.13.0"
+    },
+    "dependencies": {
+        "@wdio/logger": "^7.19.0"
     }
 }

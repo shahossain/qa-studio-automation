@@ -24,3 +24,11 @@ describe("Initialize Platform and Register Home", function () {
         await workspace_Home_1.default.checkProviderCount(2);
     });
 });
+describe("Launch Content through Search Filter", function () {
+    it('Go into Home Search', async () => {
+        await workspace_Home_1.default.searchFirstProviderWithFilters();
+    });
+    it('Apply Filter and Launch Content', async () => {
+        await workspace_Home_1.default.applyFilterAndLaunchContent();
+    });
+});
