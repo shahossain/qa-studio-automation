@@ -20,7 +20,7 @@ class WorkspaceHome extends page_1.default {
         this.searchFirstProviderWithFilters = async () => {
             await this.firstProviderWithFilters.click();
             await this.searchInputField.click();
-            await browser.keys("\uE007");
+            await browser.keys("Enter");
         };
         this.applyFilterAndLaunchContent = async () => {
             await this.startsWithFilter.click();

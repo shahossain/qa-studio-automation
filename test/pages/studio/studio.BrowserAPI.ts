@@ -1,4 +1,5 @@
 import Page from "../page";
+import Data from '../data/common'
 
 declare var browser:any;
 
@@ -9,6 +10,7 @@ class browserAPI extends Page {
     get launchPageJSON () {return browser.$('//h2[contains(text(), "Launch Page")]/following-sibling::textarea')};
     get launchPageSubmitBtn () {return browser.$('//button[text() = "Launch"]')};
 
+    // Browser API Elements
     get quitWorkspaceBtn () {return browser.$('//h2[contains(text(), "Workspace Platform API")]/following-sibling::button[contains(text(), "Quit")]')};
     get createWindowBtn () {return browser.$('//h2[contains(text(), "Workspace Platform API")]/following-sibling::button[contains(text(), "Create Window")]')};
     get createWindowNewBtn () {return browser.$('//h2[contains(text(), "Workspace Platform API")]/following-sibling::button[contains(text(), "Create Window New")]')};
@@ -24,17 +26,13 @@ class browserAPI extends Page {
 
     adjustLaunchPageJSON = async () => {
         await this.launchPageBtn.click();
-        
-        let launchPageJSONText = await this.launchPageJSON.getValue();
-        const obj = JSON.parse(launchPageJSONText);
-        obj.title = "Custom Page Title";
-        let changedLaunchPageJSONText = JSON.stringify(obj);
-
         await this.launchPageJSON.clearValue();
-        await this.launchPageJSON.setValue(changedLaunchPageJSONText);
-
-        await this.launchPageSubmitBtn.click();
+        await this.launchPageJSON.setValue(Data.modifedLaunchPageJSON);
     };
+
+    launchPage = async () => {
+        await this.launchPageSubmitBtn.click();
+    }
 };
 
 export default new browserAPI();

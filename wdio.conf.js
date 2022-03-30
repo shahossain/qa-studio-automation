@@ -1,5 +1,6 @@
 const { execFileSync } = require('child_process');
 const { join } = require('path');
+import Data from "../qa-studio-automation/test/pages/data/common"
 
 exports.config = {
     port: 9515,
@@ -14,7 +15,7 @@ exports.config = {
 
     waitforTimeout: 20000,
     connectionRetryTimeout: 900000,
-    connectionRetryCount: 1,
+    connectionRetryCount: 5,
 
     framework: 'mocha',
     mochaOpts: {
@@ -30,7 +31,7 @@ exports.config = {
         }]
     ],
     openfin: {
-        manifest: 'fins://cdn.openfin.co/workspace/6.3.2/studio/app.json',
+        manifest: Data.manifestUrl,
         debuggerPort: 9090
     },
 

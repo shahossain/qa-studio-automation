@@ -31,7 +31,7 @@ class WorkspaceHome  extends Page {
     searchFirstProviderWithFilters =async () => {
       await this.firstProviderWithFilters.click();
       await this.searchInputField.click();
-      await browser.keys("\uE007");
+      await browser.keys("Enter");
     };
 
     applyFilterAndLaunchContent = async () => {

@@ -29,6 +29,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const page_1 = __importDefault(require("../page"));
 const rm = __importStar(require("wdio-openfin-service"));
 const assert_1 = __importDefault(require("assert"));
+const common_1 = __importDefault(require("../data/common"));
 class HelperFunctions extends page_1.default {
     constructor() {
         super(...arguments);
@@ -44,11 +45,14 @@ class HelperFunctions extends page_1.default {
         };
         // Switch to Studio Window
         this.switchToStudio = async () => {
-            await rm.switchWebContentByURL('https://cdn.openfin.co/workspace/6.3.2/studio/index.html');
+            await rm.switchWebContentByURL(common_1.default.studioUrl);
         };
         // Switch to Home
         this.switchToHome = async () => {
             await rm.switchWebContentByTitle('OpenFin Home');
+        };
+        this.switchToBrowser = async () => {
+            await rm.switchWebContentByURL(common_1.default.browserUrl);
         };
     }
 }

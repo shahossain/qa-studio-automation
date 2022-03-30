@@ -1,6 +1,7 @@
 import Page from '../page'
 import * as rm from 'wdio-openfin-service'
 import assert from 'assert'
+import Data from "../data/common"
 
 declare var browser:any;
 declare var fin:any;
@@ -21,12 +22,16 @@ class HelperFunctions extends Page {
 
     // Switch to Studio Window
     switchToStudio = async () => {
-        await rm.switchWebContentByURL('https://cdn.openfin.co/workspace/6.3.2/studio/index.html');
+        await rm.switchWebContentByURL(Data.studioUrl);
     };
 
     // Switch to Home
     switchToHome = async () => {
         await rm.switchWebContentByTitle('OpenFin Home');
+    };
+
+    switchToBrowser = async () => {
+        await rm.switchWebContentByURL(Data.browserUrl);
     };
 }
 
