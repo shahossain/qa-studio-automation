@@ -8,26 +8,37 @@ const studio_HomeAPI_1 = __importDefault(require("../pages/studio/studio.HomeAPI
 const studio_BrowserAPI_1 = __importDefault(require("../pages/studio/studio.BrowserAPI"));
 const helper_1 = __importDefault(require("../pages/workspace/helper"));
 const workspace_Home_1 = __importDefault(require("../pages/workspace/workspace.Home"));
+const workspace_Browser_1 = __importDefault(require("../pages/workspace/workspace.Browser"));
 describe("End to End Smoke Test - OpenFin Workspace", function () {
     describe("Initialize Platform", function () {
         it('Initialize Platform', async () => {
             await studio_PlatformAPI_1.default.intializePlatform(false, false);
         });
     });
-    describe("Browser Smoke Test", async () => {
+    describe.skip("Browser Smoke Test", async () => {
         describe("Launch Page", async () => {
             it('Adjust Launch Page JSON', async () => {
                 await studio_BrowserAPI_1.default.adjustLaunchPageJSON();
+            });
+            it('Launch and Verify Page Exists', async () => {
                 await studio_BrowserAPI_1.default.launchPage();
+                await helper_1.default.switchToBrowser();
+                await workspace_Browser_1.default.verifyPageExists("Sample Page");
+            });
+            it('Validate Views Exist', async () => {
+                await workspace_Browser_1.default.verifyViewExists("Google");
+                await workspace_Browser_1.default.verifyViewExists("Yahoo");
+            });
+            it('Close Browser Window', async () => {
+                await helper_1.default.switchToBrowser();
+                await workspace_Browser_1.default.closeWindow();
             });
         });
     });
-    describe.skip("Home Smoke Test", async () => {
+    describe("Home Smoke Test", async () => {
         describe("Register 2 Home Providers", async () => {
             it('Register Home without Filters', async () => {
-                await helper_1.default.switchToStudio();
                 await studio_HomeAPI_1.default.registerHome("Custom Home");
-                await helper_1.default.switchToHome();
             });
             it('Register Home with Filters', async () => {
                 await helper_1.default.switchToStudio();

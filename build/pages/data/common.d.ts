@@ -3,6 +3,7 @@ declare class Data {
     manifestUrl: string;
     studioUrl: string;
     browserUrl: string;
+    homeURL: string;
     modifedLaunchPageJSON: string;
 }
 declare const _default: Data;

@@ -4,13 +4,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const page_1 = __importDefault(require("../page"));
+const common_1 = __importDefault(require("../data/common"));
 class browserAPI extends page_1.default {
     constructor() {
         super(...arguments);
         this.adjustLaunchPageJSON = async () => {
             await this.launchPageBtn.click();
-            await this.launchPageJSON.clearValue();
-            // await this.launchPageJSON.setValue(Data.modifedLaunchPageJSON);
+            let modifiedString = JSON.parse(common_1.default.modifedLaunchPageJSON);
+            await this.launchPageJSON.setValue(modifiedString);
         };
         this.launchPage = async () => {
             await this.launchPageSubmitBtn.click();

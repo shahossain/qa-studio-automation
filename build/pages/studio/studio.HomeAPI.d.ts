@@ -11,9 +11,9 @@ declare class homeAPI extends Page {
     get deregisterHomeSubmitBtn(): any;
     get showHomeBtn(): any;
     get hideHomeBTn(): any;
-    registerHome: (homeName: string) => Promise<void>;
-    deregisterHome: (homeName: string) => Promise<void>;
-    registerHomeWithFilters: (homeName: string) => Promise<void>;
+    registerHome: (homeName: String) => Promise<void>;
+    deregisterHome: (homeName: String) => Promise<void>;
+    registerHomeWithFilters: (homeName: String) => Promise<void>;
     clickShowHome: () => Promise<void>;
     clickHideHome: () => Promise<void>;
 }

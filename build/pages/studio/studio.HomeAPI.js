@@ -9,27 +9,21 @@ class homeAPI extends page_1.default {
         super(...arguments);
         this.registerHome = async (homeName) => {
             await this.registerHomeBtn.click();
-            await this.registerHomeNameInput.clearValue();
             await this.registerHomeNameInput.setValue(homeName);
-            await this.registerHomeIconInput.clearValue();
             await this.registerHomeIconInput.setValue("https://www.bing.com/favicon.ico");
-            await this.registerHomeLogoInput.clearValue();
-            await this.registerHomeLogoInput.setValue("https://www.google.com/favicon.ico");
+            await this.registerHomeLogoInput.addValue("https://www.google.com/favicon.ico");
             await this.registerHomeSubmitBtn.click();
         };
         this.deregisterHome = async (homeName) => {
             await this.deregisterHomeBtn.click();
-            await this.deregisterHomeNameInput.setValue(homeName);
+            await this.deregisterHomeNameInput.addValue(homeName);
             await this.deregisterHomeSubmitBtn.click();
         };
         this.registerHomeWithFilters = async (homeName) => {
             await this.registerHomeWithFiltersBtn.click();
-            await this.registerHomeNameInput.clearValue();
             await this.registerHomeNameInput.setValue("" + homeName + " with Filters");
-            await this.registerHomeIconInput.clearValue();
             await this.registerHomeIconInput.setValue("https://www.bing.com/favicon.ico");
-            await this.registerHomeLogoInput.clearValue();
-            await this.registerHomeLogoInput.setValue("https://www.google.com/favicon.ico");
+            await this.registerHomeLogoInput.addValue("https://www.google.com/favicon.ico");
             await this.registerHomeSubmitBtn.click();
         };
         this.clickShowHome = async () => {
@@ -40,9 +34,9 @@ class homeAPI extends page_1.default {
         };
     }
     // Register Home Elements w & w/o filters
-    get registerHomeBtn() { return browser.$('//h2[contains(text(), "Home API")]/following-sibling::button[contains(text(), "Register")]'); }
+    get registerHomeBtn() { return browser.$('//h2[contains(text(), "Home API")]/following-sibling::button[text() = "Register"]'); }
     ;
-    get registerHomeWithFiltersBtn() { return browser.$('//h2[contains(text(), "Home API")]/following-sibling::button[contains(text(), "Register With Filters")]'); }
+    get registerHomeWithFiltersBtn() { return browser.$('//h2[contains(text(), "Home API")]/following-sibling::button[text() = "Register With Filters"]'); }
     ;
     get registerHomeNameInput() { return browser.$('//input[@placeholder = "Title"]'); }
     ;

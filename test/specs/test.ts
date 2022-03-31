@@ -7,6 +7,8 @@ import Helper from '../pages/workspace/helper'
 import WSHome from '../pages/workspace/workspace.Home'
 import WSBrowser from '../pages/workspace/workspace.Browser'
 
+declare var browser:any;
+
 describe("End to End Smoke Test - OpenFin Workspace", function() {
 
     describe("Initialize Platform", function() {
@@ -16,26 +18,40 @@ describe("End to End Smoke Test - OpenFin Workspace", function() {
         });
     });
 
-    describe("Browser Smoke Test", async () => {
+    describe.skip("Browser Smoke Test", async () => {
         
         describe("Launch Page", async () => {
             
             it('Adjust Launch Page JSON', async () => {
                 await BrowserAPI.adjustLaunchPageJSON();
+            });
+
+            it('Launch and Verify Page Exists', async () => {
                 await BrowserAPI.launchPage();
+                await Helper.switchToBrowser();
+                await WSBrowser.verifyPageExists("Sample Page");
+            });
+
+            it ('Validate Views Exist',async () => {
+                await WSBrowser.verifyViewExists("Google");
+                await WSBrowser.verifyViewExists("Yahoo");
+            });
+
+            it('Close Browser Window',async () => {
+                await Helper.switchToBrowser();
+                await WSBrowser.closeWindow();
             });
         });
 
     });
 
-    describe.skip("Home Smoke Test", async () => {
+    describe("Home Smoke Test", async () => {
         
         describe("Register 2 Home Providers",async () => {
     
             it('Register Home without Filters', async () => {
-                await Helper.switchToStudio();
                 await HomeAPI.registerHome("Custom Home");
-                await Helper.switchToHome();
+
             });
     
             it('Register Home with Filters', async () => {
@@ -51,7 +67,7 @@ describe("End to End Smoke Test - OpenFin Workspace", function() {
     
         describe("Launch Content through Search Filter", function() {
         
-            it('Go into Home Search',async () => {
+            it('Go into Home Search', async () => {
                 await WSHome.searchFirstProviderWithFilters();
             });
     

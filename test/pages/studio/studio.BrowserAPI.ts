@@ -1,5 +1,6 @@
 import Page from "../page";
 import Data from '../data/common'
+import Helper from '../workspace/helper'
 
 declare var browser:any;
 
@@ -24,10 +25,11 @@ class browserAPI extends Page {
     get replaceWindowStateButtonOptionsBtn () {return browser.$('//h2[contains(text(), "Workspace Platform API")]/following-sibling::button[contains(text(), "Replace Window State Button Options")]')};
 
 
-    adjustLaunchPageJSON = async () => {
+    adjustLaunchPageJSON = async () => {        
         await this.launchPageBtn.click();
-        await this.launchPageJSON.clearValue();
-        await this.launchPageJSON.setValue(Data.modifedLaunchPageJSON);
+        let modifiedString = JSON.parse(Data.modifedLaunchPageJSON)
+        await this.launchPageJSON.setValue(modifiedString);
+
     };
 
     launchPage = async () => {
