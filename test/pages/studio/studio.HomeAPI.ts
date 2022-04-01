@@ -30,6 +30,8 @@ class homeAPI extends Page {
         await this.registerHomeIconInput.setValue("https://www.bing.com/favicon.ico");
         await this.registerHomeLogoInput.addValue("https://www.google.com/favicon.ico");
         await this.registerHomeSubmitBtn.click();
+        await browser.keys("Escape");
+
     };
 
     deregisterHome = async (homeName:String) => {
@@ -39,6 +41,7 @@ class homeAPI extends Page {
     };
 
     registerHomeWithFilters = async (homeName:String) => {
+        await this.registerHomeWithFiltersBtn.isClickable();
         await this.registerHomeWithFiltersBtn.click();
         await this.registerHomeNameInput.setValue("" + homeName + " with Filters");
         await this.registerHomeIconInput.setValue("https://www.bing.com/favicon.ico");

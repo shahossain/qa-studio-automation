@@ -13,6 +13,7 @@ class homeAPI extends page_1.default {
             await this.registerHomeIconInput.setValue("https://www.bing.com/favicon.ico");
             await this.registerHomeLogoInput.addValue("https://www.google.com/favicon.ico");
             await this.registerHomeSubmitBtn.click();
+            await browser.keys("Escape");
         };
         this.deregisterHome = async (homeName) => {
             await this.deregisterHomeBtn.click();
@@ -20,6 +21,7 @@ class homeAPI extends page_1.default {
             await this.deregisterHomeSubmitBtn.click();
         };
         this.registerHomeWithFilters = async (homeName) => {
+            await this.registerHomeWithFiltersBtn.isClickable();
             await this.registerHomeWithFiltersBtn.click();
             await this.registerHomeNameInput.setValue("" + homeName + " with Filters");
             await this.registerHomeIconInput.setValue("https://www.bing.com/favicon.ico");

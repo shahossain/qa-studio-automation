@@ -1,5 +1,7 @@
 import Page from '../page'
 import assert from 'assert'
+import Helper from "../workspace/helper"
+
 
 declare var fin:any;
 declare var browser:any;
@@ -21,6 +23,7 @@ class WorkspaceHome  extends Page {
 
     // Assertion for number of Providers
     checkProviderCount = async (numberOfProviders:number) => {
+        Helper.isShowing(true);
         async function getArrayLength() {
             const arraylength = this.allProviders.length;
             assert.strictEqual(arraylength, numberOfProviders);
@@ -28,10 +31,10 @@ class WorkspaceHome  extends Page {
     };
 
     // Search and click into the first Provider with Filters
-    searchFirstProviderWithFilters =async () => {
-      await this.firstProviderWithFilters.click();
-      await this.searchInputField.click();
-      await browser.keys("Enter");
+    searchFirstProviderWithFilters = async () => {
+        await this.firstProviderWithFilters.click();
+        await this.searchInputField.click();
+        await browser.keys("Enter");
     };
 
     applyFilterAndLaunchContent = async () => {

@@ -49,7 +49,7 @@ class HelperFunctions extends page_1.default {
         };
         // Switch to Home
         this.switchToHome = async () => {
-            await rm.switchWebContentByTitle(common_1.default.homeURL);
+            await rm.switchWebContentByURL(common_1.default.homeURL);
         };
         // Switch to Browser
         this.switchToBrowser = async () => {

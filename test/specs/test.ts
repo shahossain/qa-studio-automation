@@ -50,12 +50,11 @@ describe("End to End Smoke Test - OpenFin Workspace", function() {
         describe("Register 2 Home Providers",async () => {
     
             it('Register Home without Filters', async () => {
+                await Helper.switchToStudio();
                 await HomeAPI.registerHome("Custom Home");
-
             });
     
             it('Register Home with Filters', async () => {
-                await Helper.switchToStudio();
                 await HomeAPI.registerHomeWithFilters("Custom Home");
             });
     
@@ -65,7 +64,7 @@ describe("End to End Smoke Test - OpenFin Workspace", function() {
             });
         });
     
-        describe("Launch Content through Search Filter", function() {
+        describe.skip("Launch Content through Search Filter", function() {
         
             it('Go into Home Search', async () => {
                 await WSHome.searchFirstProviderWithFilters();

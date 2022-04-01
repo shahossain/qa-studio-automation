@@ -5,11 +5,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const page_1 = __importDefault(require("../page"));
 const assert_1 = __importDefault(require("assert"));
+const helper_1 = __importDefault(require("../workspace/helper"));
 class WorkspaceHome extends page_1.default {
     constructor() {
         super(...arguments);
         // Assertion for number of Providers
         this.checkProviderCount = async (numberOfProviders) => {
+            helper_1.default.isShowing(true);
             async function getArrayLength() {
                 const arraylength = this.allProviders.length;
                 assert_1.default.strictEqual(arraylength, numberOfProviders);

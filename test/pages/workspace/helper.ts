@@ -27,7 +27,7 @@ class HelperFunctions extends Page {
 
     // Switch to Home
     switchToHome = async () => {
-        await rm.switchWebContentByTitle(Data.homeURL);
+        await rm.switchWebContentByURL(Data.homeURL);
     };
 
     // Switch to Browser
